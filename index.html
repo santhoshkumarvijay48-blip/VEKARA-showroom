@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vekara</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+<!-- GLOW CURSOR -->
+<div class="cursor"></div>
+<div class="cursor-tail"></div>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-container">
+    <div class="logo">vekara</div>
+
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#story">Story</a></li>
+      <li><a href="#offers">Offers</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- SECTIONS -->
+<section id="home" class="section hero reveal">
+  <h1>Vekara</h1>
+  <p>mens multibrand showroom</p>
+</section>
+
+<section id="gallery" class="section light reveal">
+  <h2>Collection</h2>
+  <div class="grid">
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    
+
+
+
+  </div>
+</section>
+
+<section id="story" class="section dark reveal">
+  <h2>Our Story</h2>
+
+
+  <p>how far we come</p>
+</section>
+
+<section id="offers" class="section accent reveal">
+  <h2>Special Offers</h2>
+</section>
+
+<section id="contact" class="section light reveal">
+  <h2>Contact Us</h2>
+  <p>email here</p>
+  <div class="login-container">
+   <div class="login-container">
+    <div class="login-card">
+      <h2>vekara mens showroom</h2>
+      <p>made with love</p>
+
+      <form>
+        <div class="input-box">
+          <input type="text" required>
+          <label>Username</label>
+        </div>
+
+        <div class="input-box">
+          <input type="email" required>
+          <label>Email</label>
+        </div>
+
+        <div class="input-box">
+          <input type="password" required>
+          <label>Password</label>
+        </div>
+
+        <button type="submit" class="btn">
+          Login
+          <span></span>
+        </button>
+      </form>
+
+      <div class="footer-text">
+        <span>✨ Your data is safe with us</span>
+      </div>
+    </div>
+  </div>
+
+</section>
+   <div class="sec">
+       <div class="fade-bg"></div>
+       <div class="con">
+           <h1>Our Beginning</h1>
+            <p>
+                Every journey starts with a dream, and ours began in a small room with nothing but dedication and a vision. The founder believed that true progress comes from steady effort and values passed through generations.
+             </p>
+        </div>
+    </div>
+
+
+    <div class="sec">
+       <div class="fade-bg">
+
+       </div>
+       <div class="con">
+          <h1>The Struggles</h1>
+          <p>
+            The road was never easy. There were long days, countless challenges, and moments when giving up seemed tempting. But with patience and hard work, the path slowly began to open.
+          </p>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+<script>
+  const contents = document.querySelectorAll('.con');
+  const bgs = document.querySelectorAll('.fade-bg');
+
+
+  function revealOnScroll() {
+  contents.forEach((box, i) => {
+  const rect = box.getBoundingClientRect();
+  if (rect.top < window.innerHeight - 100) {
+  box.classList.add('show');
+  bgs[i].classList.add('show');
+  }
+  });
+  }
+
+
+  window.addEventListener('scroll', revealOnScroll);
+  revealOnScroll();
+</script>
+
+<footer class="footer">
+  © 2025 Vekara
+</footer>
+
+<script>
+/* ======================
+   HAMBURGER
+   ====================== */
+const hamburger = document.getElementById("hamburger");
+const navLinks = document.getElementById("navLinks");
+
+hamburger.onclick = () => {
+  navLinks.classList.toggle("show");
+  hamburger.classList.toggle("active");
+};
+
+/* ======================
+   SCROLL REVEAL
+   ====================== */
+const reveals = document.querySelectorAll(".reveal");
+
+function revealOnScroll() {
+  reveals.forEach(el => {
+    const top = el.getBoundingClientRect().top;
+    if (top < window.innerHeight - 120) {
+      el.classList.add("active");
+    }
+  });
+}
+
+window.addEventListener("scroll", revealOnScroll);
+revealOnScroll();
+
+/* ======================
+   GLOW CURSOR
+   ====================== */
+const cursor = document.querySelector(".cursor");
+const tail = document.querySelector(".cursor-tail");
+
+document.addEventListener("mousemove", e => {
+  cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+  tail.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+});
+</script>
+
+<section id="contact" class="section paper-section reveal">
+  <div class="paper-card">
+
+    <h2>Let’s Connect</h2>
+    <p class="subtitle">We’d love to hear from you</p>
+
+    <form class="login-form">
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Email Address" required />
+      <input type="password" placeholder="Password" required />
+      <textarea placeholder="Your Message"></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+
+  </div>
+</section>
+<script>const buttons = document.querySelectorAll(".btn");
+
+buttons.forEach(btn => {
+  btn.addEventListener("click", function(e) {
+    const span = document.createElement("span");
+    const x = e.clientX - e.target.offsetLeft;
+    const y = e.clientY - e.target.offsetTop;
+
+    span.style.left = x + "px";
+    span.style.top = y + "px";
+
+    this.appendChild(span);
+
+    setTimeout(() => span.remove(), 600);
+  });
+});
+</script>
+</body>
+</html>
